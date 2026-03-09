@@ -1,4 +1,4 @@
-// Add function called getComputerChoice
+// Create function named getComputerChoice
 function getComputerChoice() {
   // Use Math.random() to generate random number
   let x = Math.random();
@@ -10,3 +10,5 @@ function getComputerChoice() {
 }
 // Use console.log to see if function works so far
 console.log(getComputerChoice());
+
+// Create function named getHumanChoice
