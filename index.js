@@ -12,3 +12,6 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 // Create function named getHumanChoice
+function getHumanChoice() {
+  
+}
