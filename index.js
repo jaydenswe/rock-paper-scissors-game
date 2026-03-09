@@ -27,15 +27,13 @@ function getComputerChoice() {
     return paper;
   }
 }
-console.log(getComputerChoice());
 
 // Create function named getHumanChoice
 function getHumanChoice() {
   // Prompt user to obtain choice
   let userInput = prompt("Enter your choice: ");
-  return userInput;
+  return console.log(userInput.toLowerCase());
 }
-console.log(getHumanChoice());
 
 // Create function named playRound
 function playRound(humanChoice, computerChoice) {
