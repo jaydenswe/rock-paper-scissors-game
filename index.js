@@ -13,5 +13,9 @@ console.log(getComputerChoice());
 
 // Create function named getHumanChoice
 function getHumanChoice() {
-  
+  // Prompt user to obtain choice
+  let userInput = prompt("Enter your choice: ");
+  return userInput;
 }
+
+console.log(getHumanChoice());
