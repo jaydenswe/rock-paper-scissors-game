@@ -1,1 +1,4 @@
-console.log("Hello World");
+// Add function called getComputerChoice
+function getComputerChoice() {
+  
+}
