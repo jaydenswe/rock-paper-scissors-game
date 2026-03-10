@@ -8,69 +8,63 @@ let computerScore = 0;
 function getComputerChoice() {
   // Use Math.random() to generate random number
   let x = Math.random();
-  console.log(x);
 // Create variables for all 3 choices  
-  let rock = "rock ";
-  let paper = "paper ";
-  let scissors = "scissors ";
+  let rock = "rock";
+  let paper = "paper";
+  let scissors = "scissors";
 // Use conditional to return choices
   // if x is equal to 0 return scissors
   if (x == 0) {
-    return console.log(scissors);
+    return scissors;
   }
   // Else if x is greater than zero and less than or equal to 0.5 return rock
   else if (x > 0 && x <= 0.5) {
-    return console.log(rock);
+    return rock;
   }
   // Else return paper
   else {
-    return console.log(paper);
+    return paper;
   }
 }
-console.log("1")
 
 // Create function named getHumanChoice
 function getHumanChoice() {
   // Prompt user to obtain choice
   let userInput = prompt("Enter your choice: ");
-  return console.log(userInput.toLowerCase());
+  return userInput.toLowerCase();
 }
-console.log("2")
 
 // Create function named playRound
 function playRound(humanChoice, computerChoice) {
   // Make humanChoice case insensitive
   let userInput = humanChoice;
+  console.log(`User: ${userInput}`);
   // Create local variable for computerChoice
   let computerInput = computerChoice;
+  console.log(`Computer: ${computerInput}`);
   // Create variables of choices
   let rock = "rock";
   let paper = "paper";
   let scissors = "scissors";
-  // Create one result scenario if paper beats rock 
-  let result1 = `You win! ${userInput} beats ${computerInput}`;
-  let result2 = `You lose! ${computerInput} beats ${userInput}`;
-  // Create result for tie
-  let tie = `No one wins! ${userInput} = ${computerInput}`;
   // Use conditional to see if inputs are the same
   if (userInput === computerInput) {
     // Return tie if same inputs
-    return console.log(tie);
+    return console.log("Draw! No one wins.");
   }
   // else if userInput equals paper and computerInput equals rock, return result1
   else if (userInput == paper && computerInput == rock) {
-    return console.log(result1);
+    return console.log("You win! Paper beats Rock.");
   }
   // else if userInput equals rock and computerInput equals scissors, return result 1
   else if (userInput == rock && computerInput == scissors) {
-    return console.log(result1);
+    return console.log("You win! Rock beats scissors");
   }  
   // else if userInput equals scissors and computerInput equals paper, return result 1
   else if (userInput == scissors && computerInput == paper) {
-    return console.log(result1);
+    return console.log("You win! Scissors beats paper.");
   }
   else {
-    return console.log(result2);
+    return console.log("You lose!");
   }
 }
 
