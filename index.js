@@ -46,30 +46,61 @@ function playRound(humanChoice, computerChoice) {
   const rock = "rock";
   const paper = "paper";
   const scissors = "scissors";
+  // Create variables of user and computer
   const user = "user";
   const computer = "computer";
+  // Create winner variable and leave unassigned
   let winner;
   // Use conditional to see if inputs are the same
   if (userInput === computerInput) {
+    // if winner is not user and winner is not computer move to the next condition
     if (winner != user && winner != computer) {
-      console.log("No winner");
+      return;
     }
     // Return tie if same inputs
     return console.log("Draw! No one wins.")
   }
   // else if userInput equals paper and computerInput equals rock, return result1
   else if (userInput == paper && computerInput == rock) {
+    // if user wins assign user to winner
+    winner = user;
+    // if winner equal to user increment user score by 1 and log
+    if (winner == user) {
+      humanScore++;
+      console.log(`Score: user ${humanScore}`);
+    }
     return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
   }
   // else if userInput equals rock and computerInput equals scissors, return resul1
   else if (userInput == rock && computerInput == scissors) {
+    // assign user to winner
+    winner = user;
+    // if winner equal to user increment user score by 1 and log
+    if (winner == user) {
+      humanScore++;
+      console.log(`Score: user ${humanScore}`);
+    }
     return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
   }  
   // else if userInput equals scissors and computerInput equals paper, return result 1
   else if (userInput == scissors && computerInput == paper) {
+    // assign user to winner
+    winner = user;
+    // if winner equal to user increment user score by 1 and log
+    if (winner == user) {
+      humanScore++;
+      console.log(`Score: user ${humanScore}`);
+    }
     return console.log(`${user} win! ${userInput} beats ${computerInput}.`);
   }
   else {
+    // assign computer to winner
+    winner = computer;
+    // if winner equal to computer increment computerscore by and log
+    if (winner == computer) {
+      computerScore++;
+      console.log(`Score: computer ${computerScore}`);
+    }
     return console.log(`${user} loses! ${computerInput} beats ${userInput}.`);
   }
 }
@@ -82,10 +113,10 @@ const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
 
 // Create function named playGame
-function playGame(times) {
-  // Loop playRound 5 times
-  for (i = 0; i < times; i++) {
-  playRound(humanSelection, computerSelection);
-}
-}
-playGame(5);
+// function playGame(times) {
+//   // Loop playRound 5 times
+//   for (i = 0; i < times; i++) {
+//   playRound(humanSelection, computerSelection);
+// }
+// }
+// playGame(5);
