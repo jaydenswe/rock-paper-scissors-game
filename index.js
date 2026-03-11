@@ -37,34 +37,40 @@ function getHumanChoice() {
 // Create function named playRound
 function playRound(humanChoice, computerChoice) {
   // Make humanChoice case insensitive
-  let userInput = humanChoice;
+  const userInput = humanChoice;
   console.log(`User: ${userInput}`);
   // Create local variable for computerChoice
-  let computerInput = computerChoice;
+  const computerInput = computerChoice;
   console.log(`Computer: ${computerInput}`);
   // Create variables of choices
-  let rock = "rock";
-  let paper = "paper";
-  let scissors = "scissors";
+  const rock = "rock";
+  const paper = "paper";
+  const scissors = "scissors";
+  const user = "user";
+  const computer = "computer";
+  let winner;
   // Use conditional to see if inputs are the same
   if (userInput === computerInput) {
+    if (winner != user && winner != computer) {
+      console.log("No winner");
+    }
     // Return tie if same inputs
-    return console.log("Draw! No one wins.");
+    return console.log("Draw! No one wins.")
   }
   // else if userInput equals paper and computerInput equals rock, return result1
   else if (userInput == paper && computerInput == rock) {
-    return console.log(`You win! ${userInput} beats ${computerInput}.`);
+    return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
   }
   // else if userInput equals rock and computerInput equals scissors, return resul1
   else if (userInput == rock && computerInput == scissors) {
-    return console.log(`You win! ${userInput} beats ${computerInput}.`);
+    return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
   }  
   // else if userInput equals scissors and computerInput equals paper, return result 1
   else if (userInput == scissors && computerInput == paper) {
-    return console.log(`You win! ${userInput} beats ${computerInput}.`);
+    return console.log(`${user} win! ${userInput} beats ${computerInput}.`);
   }
   else {
-    return console.log(`You lose! ${computerInput} beats ${userInput}.`);
+    return console.log(`${user} loses! ${computerInput} beats ${userInput}.`);
   }
 }
 
@@ -74,3 +80,12 @@ const computerSelection = getComputerChoice();
 
 // call playRound function to use variables created
 playRound(humanSelection, computerSelection);
+
+// Create function named playGame
+function playGame(times) {
+  // Loop playRound 5 times
+  for (i = 0; i < times; i++) {
+  playRound(humanSelection, computerSelection);
+}
+}
+playGame(5);
