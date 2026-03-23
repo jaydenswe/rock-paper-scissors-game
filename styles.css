@@ -1,0 +1,13 @@
+.intro {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 50px;
+}
