@@ -105,4 +105,12 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const btn = document.querySelectorAll('button');
+const btn = document.querySelectorAll("button");
+
+btn.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerChoice = button.value;
+    const computerChoice = getComputerChoice();
+    playRound(playerChoice, computerChoice);
+  });
+});
