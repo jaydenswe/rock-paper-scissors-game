@@ -106,11 +106,24 @@ function playRound(humanChoice, computerChoice) {
 }
 
 const btn = document.querySelectorAll("button");
+const userPoints = document.getElementById("userValue");
+const computerPoints = document.getElementById("computerValue");
+const userChoiceText = document.getElementById("user-choice-inner");
+const computerChoiceText = document.getElementById("computer-choice-inner"); 
+const result = document.getElementById("result-outer")
 
 btn.forEach((button) => {
   button.addEventListener("click", () => {
     const playerChoice = button.value;
     const computerChoice = getComputerChoice();
+    userChoiceText.textContent = playerChoice;
+    computerChoiceText.textContent = computerChoice;
     playRound(playerChoice, computerChoice);
+
+    userPoints.value = humanScore;
+    let updateUserScore = userPoints.value;
   });
 });
+
+
+
