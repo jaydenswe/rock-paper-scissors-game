@@ -51,14 +51,13 @@ function playRound(humanChoice, computerChoice) {
   const computer = "computer";
   // Create winner variable and leave unassigned
   let winner;
+  // Create result variable to store the final result
+  let result = 0;
   // Use conditional to see if inputs are the same
   if (userInput === computerInput) {
     // if winner is not user and winner is not computer move to the next condition
-    if (winner != user && winner != computer) {
-      return;
-    }
     // Return tie if same inputs
-    return console.log("Draw! No one wins.")
+    result = "Draw! No one wins.";
   }
   // else if userInput equals paper and computerInput equals rock, return result1
   else if (userInput == paper && computerInput == rock) {
@@ -67,9 +66,8 @@ function playRound(humanChoice, computerChoice) {
     // if winner equal to user increment user score by 1 and log
     if (winner == user) {
       humanScore++;
-      console.log(`Score: user ${humanScore}`);
     }
-    return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
+    result = `${user} wins! ${userInput} beats ${computerInput}.`;
   }
   // else if userInput equals rock and computerInput equals scissors, return resul1
   else if (userInput == rock && computerInput == scissors) {
@@ -78,9 +76,8 @@ function playRound(humanChoice, computerChoice) {
     // if winner equal to user increment user score by 1 and log
     if (winner == user) {
       humanScore++;
-      console.log(`Score: user ${humanScore}`);
     }
-    return console.log(`${user} wins! ${userInput} beats ${computerInput}.`);
+    result = `${user} wins! ${userInput} beats ${computerInput}.`;
   }  
   // else if userInput equals scissors and computerInput equals paper, return result 1
   else if (userInput == scissors && computerInput == paper) {
@@ -89,9 +86,8 @@ function playRound(humanChoice, computerChoice) {
     // if winner equal to user increment user score by 1 and log
     if (winner == user) {
       humanScore++;
-      console.log(`Score: user ${humanScore}`);
     }
-    return console.log(`${user} win! ${userInput} beats ${computerInput}.`);
+    result = `${user} wins! ${userInput} beats ${computerInput}.`;
   }
   else {
     // assign computer to winner
@@ -99,29 +95,41 @@ function playRound(humanChoice, computerChoice) {
     // if winner equal to computer increment computerscore by and log
     if (winner == computer) {
       computerScore++;
-      console.log(`Score: computer ${computerScore}`);
     }
-    return console.log(`${user} loses! ${computerInput} beats ${userInput}.`);
+    result = `${user} loses! ${computerInput} beats ${userInput}.`;
   }
+  return result;
 }
 
+// Obtain elements of ui that will be updated
 const btn = document.querySelectorAll("button");
 const userPoints = document.getElementById("userValue");
 const computerPoints = document.getElementById("computerValue");
 const userChoiceText = document.getElementById("user-choice-inner");
 const computerChoiceText = document.getElementById("computer-choice-inner"); 
-const result = document.getElementById("result-outer");
+const resultText = document.getElementById("result");
 
+// Add functionality to loop through each button
 btn.forEach((button) => {
+  // Add event listeners for each button being clicked
   button.addEventListener("click", () => {
+    // Obtain choices
     const playerChoice = button.value;
     const computerChoice = getComputerChoice();
+
+    // Update choices based on the above
     userChoiceText.textContent = playerChoice;
     computerChoiceText.textContent = computerChoice;
-    playRound(playerChoice, computerChoice);
 
+    // Play a round of the game and assign to result
+    result = playRound(playerChoice, computerChoice);
+
+    // Update scores based on result
     userPoints.textContent = humanScore;
     computerPoints.textContent = computerScore;
+
+    // Add result text
+    resultText.textContent = result;
   });
 });
 
