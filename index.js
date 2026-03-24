@@ -110,7 +110,7 @@ const userPoints = document.getElementById("userValue");
 const computerPoints = document.getElementById("computerValue");
 const userChoiceText = document.getElementById("user-choice-inner");
 const computerChoiceText = document.getElementById("computer-choice-inner"); 
-const result = document.getElementById("result-outer")
+const result = document.getElementById("result-outer");
 
 btn.forEach((button) => {
   button.addEventListener("click", () => {
@@ -120,8 +120,8 @@ btn.forEach((button) => {
     computerChoiceText.textContent = computerChoice;
     playRound(playerChoice, computerChoice);
 
-    userPoints.value = humanScore;
-    let updateUserScore = userPoints.value;
+    userPoints.textContent = humanScore;
+    computerPoints.textContent = computerScore;
   });
 });
 
