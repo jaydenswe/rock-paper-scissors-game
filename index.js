@@ -103,6 +103,7 @@ function playRound(humanChoice, computerChoice) {
 
 // Obtain elements of ui that will be updated
 const btn = document.querySelectorAll("button");
+const btnDisabled = document.getElementById("status");
 const userPoints = document.getElementById("userValue");
 const computerPoints = document.getElementById("computerValue");
 const userChoiceText = document.getElementById("user-choice-inner");
@@ -111,6 +112,10 @@ const resultText = document.getElementById("result");
 const resultFinalText = document.getElementById("final-result");
 let finalWinnerUser = 'Final winner is user. Well done!'
 let finalWinnerComputer = 'Final winner is computer. Better luck next time!'
+
+function disableBtn() {
+  document.getElementById("status").disabled = true;
+}
 
 // Add functionality to loop through each button
 btn.forEach((button) => {
@@ -135,10 +140,12 @@ btn.forEach((button) => {
     if (humanScore === 5) {
       resultText.textContent = result;
       setTimeout(() => resultText.textContent = finalWinnerUser, 2500);
+      disableBtn();
     }
     else if (computerScore === 5) {
       resultText.textContent = result;
       setTimeout(() => resultText.textContent = finalWinnerComputer, 2500);
+      disableBtn();
     }
     else {
       // Add result text
