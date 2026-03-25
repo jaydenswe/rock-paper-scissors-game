@@ -108,6 +108,7 @@ const computerPoints = document.getElementById("computerValue");
 const userChoiceText = document.getElementById("user-choice-inner");
 const computerChoiceText = document.getElementById("computer-choice-inner"); 
 const resultText = document.getElementById("result");
+const resultFinalText = document.getElementById("final-result");
 
 // Add functionality to loop through each button
 btn.forEach((button) => {
@@ -128,8 +129,23 @@ btn.forEach((button) => {
     userPoints.textContent = humanScore;
     computerPoints.textContent = computerScore;
 
-    // Add result text
+    
+
+    // Add condition to see if game should be ended at 5 points
+    let finalWinnerUser = 'Final winner is user. Well done!'
+    let finalWinnerComputer = 'Final winner is computer. Better luck next time!'
+    if (humanScore === 5) {
+      resultText.textContent = result;
+      setTimeout(() => resultText.textContent = finalWinnerUser, 1000);
+    }
+    else if (computerScore === 5) {
+      resultText.textContent = result;
+      setTimeout(() => resultText.textContent = finalWinnerComputer, 1000);
+    }
+    else {
+      // Add result text
     resultText.textContent = result;
+    }
   });
 });
 
