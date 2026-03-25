@@ -135,12 +135,26 @@ btn.forEach((button) => {
     if (humanScore === 5) {
       resultText.textContent = result;
       setTimeout(() => resultText.textContent = finalWinnerUser, 2500);
-      btn.forEach((button) => button.disabled = true);    
+      btn.forEach((button) => button.disabled = true);
+      setTimeout(() => {
+        humanScore = 0;
+        computerScore = 0;
+        userPoints.textContent = humanScore;
+        computerPoints.textContent = computerScore;
+        btn.forEach((button) => button.disabled = false);    
+      }, 3000);    
     }
     else if (computerScore === 5) {
       resultText.textContent = result;
       setTimeout(() => resultText.textContent = finalWinnerComputer, 2500);
-      btn.forEach((button) => button.disabled = true);    
+      btn.forEach((button) => button.disabled = true);
+      setTimeout(() => {
+        humanScore = 0;
+        computerScore = 0;
+        userPoints.textContent = humanScore;
+        computerPoints.textContent = computerScore;
+        btn.forEach((button) => button.disabled = false);  
+      }, 3000);     
     }
     else {
       // Add result text
